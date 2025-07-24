@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced SL Student Grade Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="bg-indigo-600 p-6 text-center rounded-t-lg">
+            <h1 class="text-3xl font-extrabold text-white">
+                Advanced SL Student Grade Calculator
+            </h1>
+        </header>
+
+        <nav class="flex justify-around bg-gray-50 border-b border-gray-200">
+            <div class="nav-button active" data-target="addStudent">Add Student</div>
+            <div class="nav-button" data-target="addMarks">Add Marks</div>
+            <div class="nav-button" data-target="viewReport">View Report</div>
+            <div class="nav-button" data-target="listStudents">All Students</div>
+        </nav>
+
+        <main class="p-6">
+            <section id="addStudent" class="section-content active">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-800">Add New Student</h2>
+                <div id="addStudentMessage" class="message hidden"></div>
+                <label for="studentName" class="block text-gray-700 text-sm font-bold mb-2">Student Name:</label>
+                <input type="text" id="studentName" placeholder="Enter student name" required>
+
+                <label for="studentType" class="block text-gray-700 text-sm font-bold mb-2">Student Type:</label>
+                <select id="studentType" required>
+                    <option value="">Select Student Type</option>
+                    <option value="GRADE_5_SCHOLARSHIP">Grade 5 Scholarship</option>
+                    <option value="GRADE_6_TO_9">Grade 6-9</option>
+                    <option value="OL_STUDENT">O/L Student</option>
+                    <option value="AL_ARTS">A/L Arts Stream</option>
+                    <option value="AL_COMMERCE">A/L Commerce Stream</option>
+                    <option value="AL_SCIENCE">A/L Science Stream</option>
+                    <option value="AL_MATHS">A/L Maths Stream</option>
+                    <option value="AL_TECHNOLOGY">A/L Technology Stream</option>
+                </select>
+                <button id="addStudentBtn">Add Student</button>
+            </section>
+
+            <section id="addMarks" class="section-content">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-800">Add Marks to Student</h2>
+                <div id="addMarksMessage" class="message hidden"></div>
+                <label for="selectStudentForMarks" class="block text-gray-700 text-sm font-bold mb-2">Select Student:</label>
+                <select id="selectStudentForMarks" required>
+                    <option value="">Select a student</option>
+                </select>
+
+                <div id="subjectInputsContainer" class="mt-4 border p-4 rounded-lg bg-gray-50 hidden">
+                    <h3 class="text-lg font-semibold mb-3 text-gray-700">Enter Marks:</h3>
+                    <div id="compulsorySubjectsInputs"></div>
+                    <div id="optionalSubjectsInputs"></div>
+                    <button id="saveMarksBtn" class="mt-4">Save Marks</button>
+                </div>
+            </section>
+
+            <section id="viewReport" class="section-content">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-800">View Student Report</h2>
+                <div id="viewReportMessage" class="message hidden"></div>
+                <label for="selectStudentForReport" class="block text-gray-700 text-sm font-bold mb-2">Select Student:</label>
+                <select id="selectStudentForReport" required>
+                    <option value="">Select a student</option>
+                </select>
+                <button id="viewReportBtn">View Report</button>
+                <div id="studentReportDisplay" class="mt-4 p-4 border rounded-lg bg-blue-50 text-blue-800 hidden">
+                </div>
+            </section>
+
+            <section id="listStudents" class="section-content">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-800">All Registered Students</h2>
+                <div id="listStudentsMessage" class="message hidden"></div>
+                <div id="allStudentsList" class="grid gap-3">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
